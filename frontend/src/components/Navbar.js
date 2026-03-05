@@ -7,32 +7,33 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logout();
-    navigate("/login");
+    navigate("/");
   };
 
   return (
-    <nav style={styles.nav}>
-      <Link to="/" style={styles.brand}>
-        CareerCraft AI
+    <nav style={n.nav}>
+      <Link to="/" style={n.brand}>
+        <span style={n.brandIcon}>◈</span> CareerCraft AI
       </Link>
-      <div style={styles.links}>
+      <div style={n.links}>
         {user ? (
           <>
-            <Link to="/dashboard" style={styles.link}>
+            <Link to="/dashboard" style={n.link}>
               Dashboard
             </Link>
-            <span style={styles.userName}>Hi, {user.name}</span>
-            <button onClick={handleLogout} style={styles.btn}>
+            <span style={n.divider}>|</span>
+            <span style={n.userName}>Hi, {user.name}</span>
+            <button onClick={handleLogout} style={n.btn}>
               Logout
             </button>
           </>
         ) : (
           <>
-            <Link to="/login" style={styles.link}>
+            <Link to="/login" style={n.link}>
               Login
             </Link>
-            <Link to="/register" style={styles.link}>
-              Register
+            <Link to="/register" style={n.registerBtn}>
+              Get Started
             </Link>
           </>
         )}
@@ -41,31 +42,48 @@ const Navbar = () => {
   );
 };
 
-const styles = {
+const n = {
   nav: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "1rem 2rem",
-    background: "#1a1a2e",
+    padding: "0.9rem 2rem",
+    background: "#0f0f1a",
+    borderBottom: "1px solid #1a1a2e",
     color: "#fff",
   },
   brand: {
-    color: "#e94560",
-    fontWeight: "bold",
-    fontSize: "1.4rem",
-    textDecoration: "none",
-  },
-  links: { display: "flex", gap: "1rem", alignItems: "center" },
-  link: { color: "#fff", textDecoration: "none" },
-  userName: { color: "#a0a0b0", fontSize: "0.9rem" },
-  btn: {
-    background: "#e94560",
     color: "#fff",
-    border: "none",
-    padding: "0.4rem 1rem",
+    fontWeight: 800,
+    fontSize: "1.3rem",
+    textDecoration: "none",
+    display: "flex",
+    alignItems: "center",
+    gap: "0.4rem",
+    letterSpacing: "-0.01em",
+  },
+  brandIcon: { color: "#e94560", fontSize: "1.4rem" },
+  links: { display: "flex", gap: "1rem", alignItems: "center" },
+  link: { color: "#a0a0b0", textDecoration: "none", fontSize: "0.9rem" },
+  divider: { color: "#2a2a4a" },
+  userName: { color: "#606080", fontSize: "0.85rem" },
+  btn: {
+    background: "transparent",
+    color: "#a0a0b0",
+    border: "1px solid #2a2a4a",
+    padding: "0.35rem 0.9rem",
     borderRadius: "6px",
     cursor: "pointer",
+    fontSize: "0.85rem",
+  },
+  registerBtn: {
+    background: "#e94560",
+    color: "#fff",
+    padding: "0.4rem 1rem",
+    borderRadius: "6px",
+    textDecoration: "none",
+    fontSize: "0.88rem",
+    fontWeight: 600,
   },
 };
 
