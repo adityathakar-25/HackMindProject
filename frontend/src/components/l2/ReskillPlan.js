@@ -23,7 +23,7 @@ const ReskillPlan = ({ profileId, extractedSkills }) => {
   if (loading)
     return (
       <div style={p.loading}>
-        ⏳ Generating your personalised reskilling path…
+         Generating your personalised reskilling path…
       </div>
     );
   if (!data) return <div style={p.loading}>Could not generate plan.</div>;
@@ -35,7 +35,7 @@ const ReskillPlan = ({ profileId, extractedSkills }) => {
       {/* Skills section */}
       <div style={p.skillsRow}>
         <div style={p.skillBlock}>
-          <div style={p.blockTitle}>✅ Skills You Have</div>
+          <div style={p.blockTitle}>Skills You Have</div>
           <div style={p.chips}>
             {(data.extracted_skills || []).map((s) => (
               <span
@@ -56,7 +56,7 @@ const ReskillPlan = ({ profileId, extractedSkills }) => {
           </div>
         </div>
         <div style={p.skillBlock}>
-          <div style={p.blockTitle}>⚠️ Skill Gaps to Fill</div>
+          <div style={p.blockTitle}>Skill Gaps to Fill</div>
           <div style={p.chips}>
             {(data.skill_gaps || []).map((s) => (
               <span
@@ -102,7 +102,7 @@ const ReskillPlan = ({ profileId, extractedSkills }) => {
         <div style={p.planWrap}>
           <div style={p.planHeader}>
             <div>
-              <div style={p.planTitle}>🎯 {target.role}</div>
+              <div style={p.planTitle}>{target.role}</div>
               <div style={p.planMeta}>
                 {target.total_weeks} weeks &nbsp;·&nbsp;
                 {target.postings_in_city} postings in your city &nbsp;·&nbsp;
@@ -123,7 +123,7 @@ const ReskillPlan = ({ profileId, extractedSkills }) => {
                   <div style={p.weekAction}>{w.action}</div>
                   <div style={p.weekMeta}>
                     <span style={p.weekHours}>
-                      ⏱ {w.hours_per_week} hrs/week
+                       {w.hours_per_week} hrs/week
                     </span>
                     <a
                       href={w.resource_link}
@@ -131,7 +131,7 @@ const ReskillPlan = ({ profileId, extractedSkills }) => {
                       rel="noreferrer"
                       style={p.weekLink}
                     >
-                      🔗 {w.resource} ↗
+                       {w.resource} 
                     </a>
                   </div>
                 </div>

@@ -4,7 +4,7 @@ import RiskScoreCard from "../components/l2/RiskScoreCard";
 import ReskillPlan from "../components/l2/ReskillPlan";
 import ChatbotModal from "../components/l2/ChatbotModal";
 
-const STEPS = ["📝 Profile", "⚠️ Risk Score", "🗺️ Reskill Plan"];
+const STEPS = ["Profile", "Risk Score", "Reskill Plan"];
 
 const WorkerPage = () => {
   const [step, setStep] = useState(0);
@@ -60,7 +60,7 @@ const WorkerPage = () => {
             <span style={w.profileTag}>{profile.city}</span>
             <span style={w.profileTag}>{profile.xp_years} yrs exp</span>
             <button style={w.editBtn} onClick={() => setStep(0)}>
-              ← Edit Profile
+               Edit Profile
             </button>
           </div>
           <RiskScoreCard
@@ -69,11 +69,11 @@ const WorkerPage = () => {
           />
           <div style={w.actionRow}>
             <button style={w.nextBtn} onClick={() => setStep(2)}>
-              🗺️ Show My Reskilling Plan →
+               Show My Reskilling Plan 
             </button>
             {profile && (
               <button style={w.chatBtn} onClick={() => setChatOpen(true)}>
-                🤖 Ask AI Advisor
+                 Ask AI Advisor
               </button>
             )}
           </div>
@@ -109,7 +109,7 @@ const WorkerPage = () => {
               </span>
             )}
             <button style={w.editBtn} onClick={() => setStep(1)}>
-              ← Back to Score
+               Back to Score
             </button>
           </div>
           <ReskillPlan
@@ -118,7 +118,7 @@ const WorkerPage = () => {
           />
           <div style={w.actionRow}>
             <button style={w.chatBtn} onClick={() => setChatOpen(true)}>
-              🤖 Ask AI Advisor about this plan
+            Ask AI Advisor about this plan
             </button>
             <button
               style={w.resetBtn}
@@ -128,7 +128,7 @@ const WorkerPage = () => {
                 setRiskData(null);
               }}
             >
-              ↺ New Profile
+              New Profile
             </button>
           </div>
         </div>

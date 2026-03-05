@@ -7,11 +7,11 @@ import AdminPanel from "../components/l1/AdminPanel";
 import WorkerPage from "./WorkerPage";
 
 const TABS = [
-  { id: "trends", label: "📈 Hiring Trends" },
-  { id: "skills", label: "🛠️ Skill Trends" },
-  { id: "vuln", label: "⚠️ Vulnerability" },
-  { id: "worker", label: "👤 My Risk & Plan" },
-  { id: "admin", label: "⚙️ Admin / Scraper" },
+  { id: "trends", label: "Hiring Trends" },
+  { id: "skills", label: "Skill Trends" },
+  { id: "vuln", label: "Vulnerability" },
+  { id: "worker", label: "My Risk & Plan" },
+  { id: "admin", label: "Admin / Scraper" },
 ];
 
 const Dashboard = () => {

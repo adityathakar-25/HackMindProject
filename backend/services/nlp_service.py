@@ -62,7 +62,7 @@ def extract_skills(text: str) -> list[str]:
 def compute_skill_match(profile_skills: list[str], posting_skills: list[str]) -> float:
     """
     Jaccard similarity between profile skills and top skills in postings.
-    Returns 0.0 – 1.0.
+    Returns 0.0 - 1.0.
     """
     if not profile_skills or not posting_skills:
         return 0.0

@@ -23,7 +23,7 @@ def _clamp(val: float, lo: float = 0, hi: float = 100) -> float:
 
 
 def _norm_pct(val: float, cap: float = 100) -> float:
-    """Normalize a percentage to 0–100."""
+    """Normalize a percentage to 0-100."""
     return _clamp(val / cap * 100)
 
 
@@ -36,7 +36,7 @@ async def compute_risk_score(
 ) -> dict:
     """
     Returns:
-      score        — 0–100
+      score        — 0-100
       level        — LOW / MEDIUM / HIGH
       drivers      — breakdown of each component
       evidence     — top matching aggregated JD docs

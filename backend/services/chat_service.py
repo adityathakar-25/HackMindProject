@@ -47,7 +47,7 @@ async def ask_claude(
     if not ANTHROPIC_API_KEY:
         return {
             "answer": (
-                "⚠️ ANTHROPIC_API_KEY not set. Please add it to backend/.env as:\n"
+                "ANTHROPIC_API_KEY not set. Please add it to backend/.env as:\n"
                 "ANTHROPIC_API_KEY=sk-ant-..."
             ),
             "citations": [],

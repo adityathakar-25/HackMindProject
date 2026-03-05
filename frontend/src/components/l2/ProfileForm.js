@@ -152,7 +152,7 @@ const ProfileForm = ({ onSubmit }) => {
         onClick={handleSubmit}
         disabled={loading}
       >
-        {loading ? "⏳ Analysing…" : "🔍 Analyse My Risk"}
+        {loading ? "Analysing…" : "Analyse My Risk"}
       </button>
     </div>
   );

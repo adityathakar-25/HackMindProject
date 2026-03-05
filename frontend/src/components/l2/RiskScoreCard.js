@@ -21,7 +21,7 @@ const RiskScoreCard = ({ profileId, onScoreLoaded }) => {
     fetch();
   }, [profileId]);
 
-  if (loading) return <div style={r.loading}>⏳ Computing risk score…</div>;
+  if (loading) return <div style={r.loading}>Computing risk score…</div>;
   if (!risk) return <div style={r.loading}>Could not compute score.</div>;
 
   const color =
@@ -141,7 +141,7 @@ const RiskScoreCard = ({ profileId, onScoreLoaded }) => {
 
       {/* Skills extracted */}
       <div style={r.skillsWrap}>
-        <div style={r.skillsTitle}>📋 Skills detected from your writeup:</div>
+        <div style={r.skillsTitle}>Skills detected from your writeup:</div>
         <div style={r.chips}>
           {risk.meta?.posting_skills?.map((s) => (
             <span key={s} style={r.chip}>

@@ -28,7 +28,7 @@ const ChatbotModal = ({ profileId, onClose }) => {
   const [messages, setMessages] = useState([
     {
       role: "assistant",
-      text: "👋 Hello! I'm your SkillsMirage career advisor. Ask me anything about your risk score, reskilling path, or job market trends. You can also ask in Hindi — मैं हिंदी में भी जवाब दे सकता हूँ।",
+      text: "Hello! I'm your SkillsMirage career advisor. Ask me anything about your risk score, reskilling path, or job market trends. You can also ask in Hindi — मैं हिंदी में भी जवाब दे सकता हूँ।",
       citations: [],
     },
   ]);
@@ -65,7 +65,7 @@ const ChatbotModal = ({ profileId, onClose }) => {
         {
           role: "assistant",
           text:
-            "❌ " +
+            " " +
             (e.response?.data?.message ||
               "Failed to get response. Check ANTHROPIC_API_KEY in .env"),
           citations: [],
@@ -85,7 +85,7 @@ const ChatbotModal = ({ profileId, onClose }) => {
         {/* Header */}
         <div style={c.header}>
           <div>
-            <div style={c.headerTitle}>🤖 SkillsMirage AI Advisor</div>
+            <div style={c.headerTitle}>SkillsMirage AI Advisor</div>
             <div style={c.headerSub}>
               Powered by Claude · Context-aware · Bilingual EN/HI
             </div>
