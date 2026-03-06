@@ -1,6 +1,16 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
+// Color palette (matching TrendsTab)
+const C = {
+  bg: "#0b0e14",
+  surface: "#131720",
+  border: "#2a2f3a",
+  accent: "#f43f72",
+  text: "#edf2f7",
+  textMuted: "#8f9bb3",
+};
+
 const Navbar = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
@@ -11,80 +21,136 @@ const Navbar = () => {
   };
 
   return (
-    <nav style={n.nav}>
-      <Link to="/" style={n.brand}>
-        <span style={n.brandIcon}></span> CareerCraft AI
-      </Link>
-      <div style={n.links}>
-        {user ? (
-          <>
-            <Link to="/dashboard" style={n.link}>
-              Dashboard
-            </Link>
-            <span style={n.divider}>|</span>
-            <span style={n.userName}>Hi, {user.name}</span>
-            <button onClick={handleLogout} style={n.btn}>
-              Logout
-            </button>
-          </>
-        ) : (
-          <>
-            <Link to="/login" style={n.link}>
-              Login
-            </Link>
-            <Link to="/register" style={n.registerBtn}>
-              Get Started
-            </Link>
-          </>
-        )}
+    <nav style={{
+      position: "sticky",
+      top: 0,
+      zIndex: 100,
+      width: "100%",
+      background: C.bg,
+      borderBottom: `1px solid ${C.border}`,
+      backdropFilter: "blur(10px)",
+      WebkitBackdropFilter: "blur(10px)",
+    }}>
+      <div style={{
+        maxWidth: 1200,
+        margin: "0 auto",
+        padding: "0 24px",
+        height: 64,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}>
+        {/* Brand */}
+        <Link to="/" style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 8,
+          textDecoration: "none",
+        }}>
+          <span style={{
+            fontSize: 20,
+            fontWeight: 700,
+            color: C.text,
+            letterSpacing: "-0.02em",
+          }}>
+            Skills<span style={{ color: C.accent }}>Mirage</span>
+          </span>
+          <span style={{
+            background: "rgba(244,63,114,0.1)",
+            color: C.accent,
+            border: `1px solid ${C.accent}30`,
+            borderRadius: 4,
+            fontSize: 10,
+            padding: "2px 8px",
+            fontWeight: 600,
+            letterSpacing: "0.05em",
+            textTransform: "uppercase",
+          }}>
+            Live Intel
+          </span>
+        </Link>
+
+        {/* Right side */}
+        <div style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 16,
+        }}>
+          {user ? (
+            <>
+              <span style={{
+                color: C.textMuted,
+                fontSize: 14,
+              }}>
+                Hi, <span style={{ color: C.text, fontWeight: 500 }}>{user.name}</span>
+              </span>
+              <button
+                onClick={handleLogout}
+                style={{
+                  background: "transparent",
+                  color: C.textMuted,
+                  border: `1px solid ${C.border}`,
+                  borderRadius: 8,
+                  padding: "6px 14px",
+                  fontSize: 13,
+                  fontWeight: 500,
+                  cursor: "pointer",
+                  transition: "all 0.15s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "rgba(255,255,255,0.05)";
+                  e.currentTarget.style.color = C.text;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "transparent";
+                  e.currentTarget.style.color = C.textMuted;
+                }}
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                style={{
+                  color: C.textMuted,
+                  textDecoration: "none",
+                  fontSize: 14,
+                  fontWeight: 500,
+                  padding: "6px 12px",
+                  borderRadius: 8,
+                  transition: "background 0.15s",
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.background = "rgba(255,255,255,0.05)"}
+                onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}
+              >
+                Sign in
+              </Link>
+              <Link
+                to="/register"
+                style={{
+                  background: `linear-gradient(135deg, ${C.accent}, #e11d48)`,
+                  color: "#fff",
+                  padding: "8px 18px",
+                  borderRadius: 8,
+                  textDecoration: "none",
+                  fontSize: 14,
+                  fontWeight: 600,
+                  boxShadow: `0 4px 12px ${C.accent}40`,
+                  transition: "all 0.15s",
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.transform = "translateY(-1px)"}
+                onMouseLeave={(e) => e.currentTarget.style.transform = "translateY(0)"}
+              >
+                Get Started
+              </Link>
+            </>
+          )}
+        </div>
       </div>
     </nav>
   );
-};
-
-const n = {
-  nav: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "0.9rem 2rem",
-    background: "#0f0f1a",
-    borderBottom: "1px solid #1a1a2e",
-    color: "#fff",
-  },
-  brand: {
-    color: "#fff",
-    fontWeight: 800,
-    fontSize: "1.3rem",
-    textDecoration: "none",
-    display: "flex",
-    alignItems: "center",
-    gap: "0.4rem",
-    letterSpacing: "-0.01em",
-  },
-  brandIcon: { color: "#e94560", fontSize: "1.4rem" },
-  links: { display: "flex", gap: "1rem", alignItems: "center" },
-  link: { color: "#a0a0b0", textDecoration: "none", fontSize: "0.9rem" },
-  divider: { color: "#2a2a4a" },
-  userName: { color: "#606080", fontSize: "0.85rem" },
-  btn: {
-    background: "transparent",
-    color: "#a0a0b0",
-    border: "1px solid #2a2a4a",
-    padding: "0.35rem 0.9rem",
-    borderRadius: "6px",
-    cursor: "pointer",
-    fontSize: "0.85rem",
-  },
-  registerBtn: {
-    background: "#e94560",
-    color: "#fff",
-    padding: "0.4rem 1rem",
-    borderRadius: "6px",
-    textDecoration: "none",
-    fontSize: "0.88rem",
-    fontWeight: 600,
-  },
 };
 
 export default Navbar;

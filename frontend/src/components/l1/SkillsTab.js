@@ -687,7 +687,7 @@ export default function SkillsTab() {
               >
                 <div style={{ marginBottom: 10, flexShrink: 0 }}>
                   <div style={{ fontSize: 13, fontWeight: 700, color: C.text }}>
-                    {noWeeklyChange ? "Lower Frequency" : "📉 Declining Skills"}
+                    {noWeeklyChange ? "Lower Frequency" : "Declining Skills"}
                   </div>
                   <div style={{ fontSize: 10, color: C.muted, marginTop: 2 }}>
                     {city || "All Cities"} · {role || "All Roles"}
@@ -747,7 +747,7 @@ export default function SkillsTab() {
                     <div
                       style={{ fontSize: 13, fontWeight: 700, color: C.text }}
                     >
-                      🎓 Skill Gap Map
+                     Skill Gap Map
                     </div>
                     <div style={{ fontSize: 10, color: C.muted, marginTop: 2 }}>
                       Hired by market vs trained by PMKVY / SWAYAM

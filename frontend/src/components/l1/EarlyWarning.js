@@ -312,7 +312,7 @@ export default function EarlyWarning() {
             textTransform: "uppercase",
           }}
         >
-          🚨 Early Warning
+          Early Warning
         </span>
         <div
           style={{
