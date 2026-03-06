@@ -121,7 +121,7 @@ const AdminPanel = () => {
           </>
         )}
         <button style={a.refreshBtn} onClick={fetchStatus}>
-          ↻ Refresh
+          Refresh
         </button>
       </div>
 
