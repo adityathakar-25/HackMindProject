@@ -3,23 +3,24 @@ import axios from "axios";
 
 // ── Design tokens (aligned with HiringTrends) ─────────────────────────────────
 const C = {
-  bg: "#0d0f1a",
-  surface: "#13162a",
-  card: "#181c30",
-  border: "#252a42",
-  accent: "#f43f72",
-  accentDim: "rgba(244,63,114,0.18)",
-  teal: "#00d4b1",
-  tealDim: "rgba(0,212,177,0.15)",
-  amber: "#f0a500",
-  amberDim: "rgba(240,165,0,0.15)",
-  violet: "#a78bfa",
-  violetDim: "rgba(167,139,250,0.15)",
-  text: "#e2e8f0",
-  muted: "#6b7280",
-  grid: "#1f2640",
+  bg: "#0B0E13",
+  surface: "#141821",
+  card: "#1C2130",
+  border: "#2A3144",
+  accent: "#F97316",
+  accentDim: "rgba(249, 115, 22, 0.15)",
+  teal: "#10B981", // injected standard emerald for positive charts
+  tealDim: "rgba(16, 185, 129, 0.15)",
+  amber: "#F97316", // mapped from Orange
+  amberDim: "rgba(249, 115, 22, 0.15)",
+  violet: "#3B82F6", // mapped from Blue
+  violetDim: "rgba(59, 130, 246, 0.15)",
+  yellow: "#F97316",
+  text: "#E5E7EB",
+  textMuted: "#9CA3AF",
+  muted: "#9CA3AF",
+  grid: "#1C2130",
 };
-
 const CITIES = [
   "Bangalore",
   "Mumbai",

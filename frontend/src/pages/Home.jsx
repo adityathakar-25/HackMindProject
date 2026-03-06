@@ -2,19 +2,18 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useEffect, useRef, useState } from "react";
 
-// Color palette
 const C = {
-  bg: "#0b0e14",
-  surface: "#131720",
-  card: "#1a1f2a",
-  border: "#2a2f3a",
-  accent: "#f43f72",
-  teal: "#00b8a9",
-  amber: "#f7b731",
-  text: "#edf2f7",
-  textMuted: "#8f9bb3",
+  bg: "#0B0E13",
+  surface: "#141821",
+  card: "#1C2130",
+  border: "#2A3144",
+  accent: "#F97316",
+  teal: "#10B981", // injected standard emerald for positive charts
+  amber: "#F97316", // mapped from Orange
+  violet: "#3B82F6", // mapped from Blue
+  text: "#E5E7EB",
+  textMuted: "#9CA3AF",
 };
-
 // ── Animated particle background (unchanged logic, only styling refined) ──
 function ParticleField() {
   const canvasRef = useRef(null);

@@ -2,18 +2,31 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const C = {
-  bg: "#0d0f1a",
-  surface: "#13162a",
-  card: "#181c30",
-  border: "#252a42",
-  accent: "#f43f72",
-  teal: "#00d4b1",
-  amber: "#f0a500",
-  yellow: "#eab308",
-  text: "#e2e8f0",
-  muted: "#6b7280",
-  grid: "#1f2640",
+  bg: "#0B0E13",
+  surface: "#141821",
+  card: "#1C2130",
+  border: "#2A3144",
+  accent: "#F97316",
+  teal: "#10B981", // injected standard emerald for positive charts
+  amber: "#F97316", // mapped from Orange
+  yellow: "#F97316",
+  text: "#E5E7EB",
+  muted: "#9CA3AF",
+  grid: "#1C2130",
 };
+// const C = {
+//   bg: "#0d0f1a",
+//   surface: "#13162a",
+//   card: "#181c30",
+//   border: "#252a42",
+//   accent: "#f43f72",
+//   teal: "#00d4b1",
+//   amber: "#f0a500",
+//   yellow: "#eab308",
+//   text: "#e2e8f0",
+//   muted: "#6b7280",
+//   grid: "#1f2640",
+// };
 
 const SEV = {
   CRITICAL: {

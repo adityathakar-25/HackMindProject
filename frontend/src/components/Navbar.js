@@ -3,14 +3,13 @@ import { useAuth } from "../context/AuthContext";
 
 // Color palette (matching TrendsTab)
 const C = {
-  bg: "#0b0e14",
-  surface: "#131720",
-  border: "#2a2f3a",
-  accent: "#f43f72",
-  text: "#edf2f7",
-  textMuted: "#8f9bb3",
+  bg: "#0B0E13",
+  surface: "#141821",
+  border: "#2A3144",
+  accent: "#F97316",
+  text: "#E5E7EB",
+  textMuted: "#9CA3AF",
 };
-
 const Navbar = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();

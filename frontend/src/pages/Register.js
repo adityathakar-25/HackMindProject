@@ -26,14 +26,14 @@ function ParticleField() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       nodes.forEach(n => {
         const dx = n.x - mouse.x, dy = n.y - mouse.y, d = Math.sqrt(dx*dx+dy*dy);
-        if (d < MOUSE_DIST) { ctx.beginPath(); ctx.strokeStyle=`rgba(0,212,177,${0.55*(1-d/MOUSE_DIST)})`; ctx.lineWidth=1.2; ctx.moveTo(n.x,n.y); ctx.lineTo(mouse.x,mouse.y); ctx.stroke(); }
+        if (d < MOUSE_DIST) { ctx.beginPath(); ctx.strokeStyle=`rgba(59,130,246,${0.55*(1-d/MOUSE_DIST)})`; ctx.lineWidth=1.2; ctx.moveTo(n.x,n.y); ctx.lineTo(mouse.x,mouse.y); ctx.stroke(); }
       });
       for (let i=0;i<NODES;i++) for (let j=i+1;j<NODES;j++) {
         const dx=nodes[i].x-nodes[j].x, dy=nodes[i].y-nodes[j].y, dist=Math.sqrt(dx*dx+dy*dy);
-        if (dist<CONNECT_DIST) { const a=0.45*(1-dist/CONNECT_DIST); ctx.beginPath(); ctx.strokeStyle=nodes[i].teal||nodes[j].teal?`rgba(0,212,177,${a})`:`rgba(244,63,114,${a})`; ctx.lineWidth=0.8; ctx.moveTo(nodes[i].x,nodes[i].y); ctx.lineTo(nodes[j].x,nodes[j].y); ctx.stroke(); }
+        if (dist<CONNECT_DIST) { const a=0.45*(1-dist/CONNECT_DIST); ctx.beginPath(); ctx.strokeStyle=nodes[i].teal||nodes[j].teal?`rgba(59,130,246,${a})`:`rgba(249,115,22,${a})`; ctx.lineWidth=0.8; ctx.moveTo(nodes[i].x,nodes[i].y); ctx.lineTo(nodes[j].x,nodes[j].y); ctx.stroke(); }
       }
       nodes.forEach(n => {
-        const col = n.teal?"0,212,177":"244,63,114";
+        const col = n.teal?"59,130,246":"249,115,22";
         const g = ctx.createRadialGradient(n.x,n.y,0,n.x,n.y,n.r*3);
         g.addColorStop(0,`rgba(${col},0.6)`); g.addColorStop(1,`rgba(${col},0)`);
         ctx.beginPath(); ctx.arc(n.x,n.y,n.r*3,0,Math.PI*2); ctx.fillStyle=g; ctx.fill();
@@ -75,27 +75,27 @@ const Register = () => {
 
   const inputStyle = {
     width:"100%", padding:"10px 14px", borderRadius:8,
-    border:"1px solid #252a42", background:"rgba(13,15,26,0.8)",
-    color:"#e2e8f0", fontSize:13, outline:"none", boxSizing:"border-box",
-    fontFamily:"inherit",
+    border:"1px solid #2A3144", background:"rgba(11,14,19,0.8)",
+    color:"#E5E7EB", fontSize:13, outline:"none", boxSizing:"border-box",
+    fontFamily:"inherit", transition: "border-color 0.2s"
   };
-  const labelStyle = { fontSize:11, color:"#9ca3af", textTransform:"uppercase", letterSpacing:"0.08em", fontWeight:600, display:"block", marginBottom:6 };
+  const labelStyle = { fontSize:11, color:"#9CA3AF", textTransform:"uppercase", letterSpacing:"0.08em", fontWeight:600, display:"block", marginBottom:6 };
 
   return (
-    <div style={{ position:"fixed", inset:0, background:"#0d0f1a", display:"flex", alignItems:"center", justifyContent:"center" }}>
+    <div style={{ position:"fixed", inset:0, background:"#0B0E13", display:"flex", alignItems:"center", justifyContent:"center" }}>
       <ParticleField />
 
-      <div style={{ position:"relative", zIndex:1, background:"rgba(19,22,42,0.85)", border:"1px solid #252a42", borderRadius:16, padding:"36px 44px", width:420, boxShadow:"0 32px 80px rgba(0,0,0,0.6)", backdropFilter:"blur(12px)" }}>
+      <div style={{ position:"relative", zIndex:1, background:"rgba(20,24,33,0.85)", border:"1px solid #2A3144", borderRadius:16, padding:"36px 44px", width:420, boxShadow:"0 32px 80px rgba(0,0,0,0.6)", backdropFilter:"blur(12px)" }}>
         <div style={{ marginBottom:24 }}>
-          <div style={{ fontSize:13, fontWeight:800, color:"#e2e8f0", letterSpacing:"-0.02em", marginBottom:6 }}>
-            Skills<span style={{ color:"#f43f72" }}>Mirage</span>
+          <div style={{ fontSize:13, fontWeight:800, color:"#E5E7EB", letterSpacing:"-0.02em", marginBottom:6 }}>
+            Skills<span style={{ color:"#F97316" }}>Mirage</span>
           </div>
-          <h2 style={{ fontSize:24, fontWeight:800, color:"#e2e8f0", margin:0, letterSpacing:"-0.02em" }}>Create account</h2>
-          <p style={{ color:"#6b7280", fontSize:13, margin:"6px 0 0" }}>Start tracking your AI displacement risk</p>
+          <h2 style={{ fontSize:24, fontWeight:800, color:"#E5E7EB", margin:0, letterSpacing:"-0.02em" }}>Create account</h2>
+          <p style={{ color:"#9CA3AF", fontSize:13, margin:"6px 0 0" }}>Start tracking your AI displacement risk</p>
         </div>
 
         {error && (
-          <div style={{ background:"rgba(244,63,114,0.1)", color:"#f43f72", border:"1px solid rgba(244,63,114,0.3)", padding:"10px 14px", borderRadius:8, fontSize:12, marginBottom:14 }}>
+          <div style={{ background:"rgba(239,68,68,0.1)", color:"#EF4444", border:"1px solid rgba(239,68,68,0.3)", padding:"10px 14px", borderRadius:8, fontSize:12, marginBottom:14 }}>
             {error}
           </div>
         )}
@@ -104,33 +104,33 @@ const Register = () => {
           <div>
             <label style={labelStyle}>Full Name</label>
             <input name="name" type="text" value={formData.name} onChange={handleChange} placeholder="John Doe" required style={inputStyle}
-              onFocus={e=>e.target.style.borderColor="#f43f72"} onBlur={e=>e.target.style.borderColor="#252a42"} />
+              onFocus={e=>e.target.style.borderColor="#F97316"} onBlur={e=>e.target.style.borderColor="#2A3144"} />
           </div>
           <div>
             <label style={labelStyle}>Email</label>
             <input name="email" type="email" value={formData.email} onChange={handleChange} placeholder="you@example.com" required style={inputStyle}
-              onFocus={e=>e.target.style.borderColor="#f43f72"} onBlur={e=>e.target.style.borderColor="#252a42"} />
+              onFocus={e=>e.target.style.borderColor="#F97316"} onBlur={e=>e.target.style.borderColor="#2A3144"} />
           </div>
           <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:12 }}>
             <div>
               <label style={labelStyle}>Password</label>
               <input name="password" type="password" value={formData.password} onChange={handleChange} placeholder="••••••••" required style={inputStyle}
-                onFocus={e=>e.target.style.borderColor="#f43f72"} onBlur={e=>e.target.style.borderColor="#252a42"} />
+                onFocus={e=>e.target.style.borderColor="#F97316"} onBlur={e=>e.target.style.borderColor="#2A3144"} />
             </div>
             <div>
               <label style={labelStyle}>Confirm</label>
               <input name="confirmPassword" type="password" value={formData.confirmPassword} onChange={handleChange} placeholder="••••••••" required style={inputStyle}
-                onFocus={e=>e.target.style.borderColor="#f43f72"} onBlur={e=>e.target.style.borderColor="#252a42"} />
+                onFocus={e=>e.target.style.borderColor="#F97316"} onBlur={e=>e.target.style.borderColor="#2A3144"} />
             </div>
           </div>
-          <button type="submit" disabled={loading} style={{ marginTop:6, background:"linear-gradient(135deg,#f43f72,#e11d48)", color:"#fff", border:"none", padding:"12px", borderRadius:9, fontSize:14, fontWeight:700, cursor:loading?"not-allowed":"pointer", opacity:loading?0.7:1, boxShadow:"0 0 24px rgba(244,63,114,0.3)", fontFamily:"inherit" }}>
+          <button type="submit" disabled={loading} style={{ marginTop:6, background:"linear-gradient(135deg, #F97316, #C2410C)", color:"#fff", border:"none", padding:"12px", borderRadius:9, fontSize:14, fontWeight:700, cursor:loading?"not-allowed":"pointer", opacity:loading?0.7:1, boxShadow:"0 0 24px rgba(249,115,22,0.3)", fontFamily:"inherit" }}>
             {loading ? "Creating account…" : "Create Account →"}
           </button>
         </form>
 
-        <p style={{ textAlign:"center", color:"#6b7280", fontSize:12, marginTop:18, marginBottom:0 }}>
+        <p style={{ textAlign:"center", color:"#9CA3AF", fontSize:12, marginTop:18, marginBottom:0 }}>
           Already have an account?{" "}
-          <Link to="/login" style={{ color:"#f43f72", fontWeight:600 }}>Sign in</Link>
+          <Link to="/login" style={{ color:"#F97316", fontWeight:600 }}>Sign in</Link>
         </p>
       </div>
     </div>
